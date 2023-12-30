@@ -1,0 +1,40 @@
+.pagination-container {
+    /* width: 600px;
+    margin: 25% auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20% 0;
+    gap: 20px;
+}
+button {
+    border: 1px solid green;
+    width: 30px;
+    height: 30px;
+    border-radius: 60%;
+    cursor: pointer;
+}
+button:hover {
+    background-color: aquamarine;
+}
+.arrow {
+    width: 16px;
+    height: 16px;
+}
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    width: 18px;
+    border-radius: 50%;
+    text-align: center;
+}
+a:link {
+    color: black;
+}
+a:hover, a:active {
+    color: white;
+    background-color: green;
+}
+#active {
+    color: white;
+    background-color: green;
+}

@@ -1,0 +1,39 @@
+/* .box1{
+    display: inline;
+    text-transform: capitalize;
+} */
+/* body > .box1{
+    display: inline;
+} */
+div:first-child{
+    display: inline;
+}
+
+/* .box2{
+    display: inline;
+} */
+/* body .box2{
+    display: inline;
+} */
+/* .box1 + div{
+    display: inline;
+} */
+/* div.box2{
+    display: inline;
+    background-color: yellow;
+} */
+
+/* [class*="ox"]{
+    display: inline;
+} */
+/* .box2::first-line{
+    color: purple;
+} */
+[class$="x2"]::after{
+    content: "(ended)";
+}
+
+/* practice */
+div[id = "second"]::first-line {
+    color: blue;
+}

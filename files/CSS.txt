@@ -1,0 +1,338 @@
+- To style the div element to right of another div element we use display property of css.
+	.box1{
+		display : inline;
+	}
+	.box2{
+		display : inline;
+	}
+
+Every CSS selector has its place in the specificity hierarchy.
+
+There are four categories which define the specificity level of a selector:
+
+Inline styles - Example: <h1 style="color: pink;">
+IDs - Example: #navbar
+Classes, pseudo-classes, attribute selectors - Example: .test, :hover, [href]
+Elements and pseudo-elements - Example: h1, :before
+if you use the !important rule, it will even override inline styles!
+
+- display : inline takes only the required space.
+- display : block takes full space available and leaves a newline before and after element
+- display : inline-block is same as inline but we can set height, width, padding, margin
+- diff b/w display : none and visibility : hidden
+
+- text-transform : uppercase; 
+- text-transform : capitalize //To make the first letter of each word to uppercase
+- line-height : 0.2px
+- font-size : 10px
+- font-family : "Times new Roman"
+- Web safe fonts : These fonts are universally installed across browsers
+- font-style : sets the style of font(italic/bold/strong)
+- diff b/w generic and specific font family
+
+Units (for responsive design) : 
+- font-size : 3em	//unit relative to the parent size font
+- font-size : 4rem	//unit relative to the root font size(<html> tag)
+- font-size : 50vw (half screen of responsive device)	//unit relative to viewport(page screen) width
+- font-size : 50vh (same as vw but as height)
+
+- position : static, it is the default position and top/bottom/left/right has no effect
+	   : relative, top/bottom/left/right will effect
+	   : absolute, box will be relative to the html page during top/bottom/left/right
+	   : fixed, same as absolute but relative to browsers window	   
+	   : sticky, stick to the browsers window
+
+- The top property is a position property. It is used with the position property, such as absolute or relative. margin-top is an element's own property. margin-top is for measuring the external distance to the element, in relation to the previous one.
+
+- If elements are overlapping each other then increase the z-index to show the one up w.r.t other. It specifies the stack of element
+
+Flexbox : 
+- Float property : It just flows the element towards left/right
+- Clear property : It tells no one will come right/left of that element (clear : both can also be used)
+- CSS flexbox : Aims at providing a better way to layout, align and distribute space among items in a container.
+- Properties that can only be used in parent (container)
+	.container {
+		display : flex
+		flex-direction : column 	//to use it as inline property
+		flex-direction : reverse	//to reverse the elements
+		flex-wrap : wrap	//for responsiveness
+		justify-content : center	//to centre the elements
+		align-items : flex-end		//to align the text
+	/*	align-content : center	*/		
+		} 
+- Properties that can only be used in child : 
+	.box{
+		order : 4	//takes the element at order 4
+		flex-grow : 3	//will increase the width of elements
+		flex-shrink : 2	//will decrease the width of elements
+		}
+
+CSS Grid and Media queries : 
+- Using grid for grid container: 
+	.container{
+		display : grid
+		display : inline-grid		
+		grid-row-gap : 2px
+		grid-column-gap : 1px
+		grid-template-columns : auto auto	//By two auto we will get two columns and so on
+		grid-gap : 2px 9px	//shorthand of grid-row-gap and grid-column gap			  	
+		justify-content : centre
+		align-content: centre
+		justify-items: centre
+		align-items: centre
+	}
+
+- Using grid for items in grid : 
+	.grid-item{
+		grid-column : 1 / 5	//start from line 1 and end at 5	
+		grid-row : 1 / 5
+		
+	}
+
+- Using media for responsiveness : 
+	@media screen and (max-width : 800px){
+		body{
+		background-color : brown		//when the width reaches below 800px then the bg will be brown
+		}
+	}
+Transforms, Transitions and Animations : 
+- Transforms are used to rotate, move, skew or scale elements. They are used to create a 3D effect
+	.box{
+	transform : translate(134px,56px) rotate(45deg);
+	transform : skew(4deg, 6deg)
+	}
+
+----------------------------------------------------------------------------------------------------------
+- Pseudo classes : Need action by the user to interact with the page and are dynamic
+- Box model : The CSS box model is essentially a box that wraps around every HTML element.
+- For inline elements adding height and width does not have effect. For this we use inline-block
+- Relative units : em, rem, vw, vh which are used for responsiveness
+- In inline elements default margin is applied only for left and right.
+- Padding does not accept negative value, but margin can.
+- Wrap the elements in <div> and set margin : 0 auto; will set the element at the centre
+- Typography is used to change the style of text(fonts).
+- Web safe fonts are already installed into the browsers
+
+- Web fonts will be used as @font-face{font-family : '', src : url()}
+- Relative values are calculated based on the nearest ancestor element, while absolute values are fixed.
+- root em is relative to root element (<html>) and em is relative to parent element
+- 1rem/em = 16px(default)
+- Order matters in shorthand of font
+- line-height is used for spacing b/w the lines
+- float can be used to position the elements
+- clear can be used to restrict other elements to float right or left
+- If the content flows outside the container use overflow.
+- When float is used it is not related to container anymore and the way to show it correctly use overflow into the parent(container)
+- float can make a block element into inline
+- when properties in box model increases the space of box increases because of default value of box-sizing : content-box, this can be changed to border-box to take the space of only the content, this is k/as box model fix
+- Position property can also be used for position of elements
+- z-index can be used for stacking
+- Flexbox deals with 1D and grid deals with 2D
+- flex container : the parent element and flex items: the child elements
+- flexbox is used with display : flex or display : inline-flex in the container
+
+- Container can resize according to content
+- flex-direction will be used for direction in flexbox(row(default)/column)
+- Use flex-wrap : wrap for responsiveness
+- flex-flow : column wrap is the shorthand in container
+- flex : grow shrink basis in the items
+- justify-content align items on the main axis and align-items align items on the cross axis. Both will be used in container.
+- grid container : the parent element, grid items : the child elements inside the grid container
+- Here also display : grid will be used in container
+- By using display : inline-grid the container will use the space of content
+- Grid tracks are cells and gutters is the space b/w them
+- grid-template-columns and grid-template-rows will be used in the conatiner.
+- fr unit will be used in grid(relative unit). fr represents a fraction of the available space in the grid container
+- grid-template-columns : repeat(3,1fr)	//this will produce 3 columns of 1fr
+- gap : 10px will be used for gutters
+- gap : calc(10% + 20px) can also be used with gutter
+- These all will be done in container
+
+- by using grid-template-columns/rows we use explict grid which is static. If we don't know the row and columns means the dynamic data then we will use implicit grid.
+- Implicit grid looks like grid-auto-columns : 200px, grid-auto-rows : 50px
+- Implicit grid will fill the container available
+- grid items consists of positioning of cells.
+- Use grid-column and grid-row in grid items
+- grid-column : 1 / 2	//start from 1 and end at 2
+
+- Advance Selectors : 1. Descendant selector : section p {}	//child and also the child of child
+		      2. Child selector : section > p{}		//only the child
+	 	      3. Adj. Sibling selecting : h1 + p{}		//p is just after the h1, will not affect the before one
+		      4. General sibling selector : h1 ~ p{}	//will affect all the next p siblings of h1
+- Pseudo-class selectors - p:first-child{} and p:last-child{}		//first and last child will be changed
+			   p:first-of-type{} and p:last-of-type{} 	//now the first and last 'paragraphs' will be changed only
+- Responsive Designing :1. Use max-width and % unit relative to the screen
+			2. Use background property
+			3. Media queries : @media screen and (max-width : 100px){}		//This will apply the css only when width is less than 100px. 'And' is used because we use media type and media features together
+			4. Media types : 1. all
+					 2. print
+					 3. speech 
+					 4. screen
+			5. Media features : (max-width : 100px)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECTORS : 
+- Compound selector : p.myclass{}	//all the paragraphs with class myclass will be changed
+- Descendant Selector : p a {}		//a which are within p
+- Child selector : article > p {}	//p which is direct child of article
+- Adjacent Siblings : h1 + p {}		//p immediate after to h1
+- General Siblings : h1 ~ p {}		//All the next p siblings of h1
+- Attribute selector : [title] {}	//All the elements which have attribute title
+		       a[title]{}	//a with attribute title will be selected
+- Exact and Partial attribute : [title="first"]{}	//the element which have attribute title="first"
+				[title~="first"]{}	//Every element whose title consists first in it
+
+- Beginning, Ending and Arbitrary substring attribute selector : [title^="fi"]{}	//starting value is "fi"
+								 [title$="th"]{}	//ending value is "th"
+								 [title*="fi"]{}	//Anywhere "fi" is found
+- Pseudo-classes : strong:only-child{}	//strong is the only child so it will be selected
+		   h2:only-of-type{}	//h2 type is the only child of h2
+		   li:first-child{}
+		   li:last-child{}
+		   p:first-of-type{}	//first p element 
+		   li:nth-child(even)	//all the even li will be selected and same for odd also
+		   li:nth-child(6)	//6th option will be selected
+		   li:nth-child(3n + 1)	//Every 3rd and start with first one(calculate n=0,1,2,3...)
+		   li:nth-last-child(3n + 6)	//start from bottom
+		   :required {}		//will be used with forms
+		   :optional {}		
+		   :checked{}		//will be used with radio button or checbox
+		   [type="checkbox"]:checked{}		//particular for checkbox
+		   :target{}		//works with links
+		   img:not([alt]){}	//will apply for the image which don't have alt attribute
+
+- Understanding :root and :empty - 
+:root {						//:root will be the root of css i.e. <html> and we will declare global variables here.
+	--standard-size : 1em;
+}
+
+.container{ grid-gap : var(--standard-size)}	//variable will be used like this
+
+:empty {}		//the element which does not contain any content in it, not even whitespace
+
+- Pseudo-elements - p:first-of-type::first-letter{}	//selects the first letter
+		    p:first-of-type::first-line{}
+		    [href$=".pdf"]::after{ content : "(PDF)"}	//this will put (PDF) after the link
+		    [href$=".pdf"]::before{ content : "(PDF)"}	//this will put (PDF) before the link
+- Universal Selector - *{}
+
+- calc : It allows to do calculations of any unit 
+	calc(100px + 200px)
+	calc(400px - calc(100px + 200px))
+- We can also combine different units : calc(100% - 30px)			//will take full width except 30px
+- But there should be space both side of the operator. So follow the format
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+DESIGN SYSTEM AND ARCHITECTURE
+- Libraries : 1. Pattern libraries : document the design solutions
+	      2. Component libraries : Show how to implement those solutions
+- Frameworks : Collection of all the components packaged into one toolkit.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+FROM FLOAT TO FLEXBOX AND GRID:
+- CSS Layouts - 1. Normal flow
+  	      2. Floats
+	      3. Positioning
+	      4. Flexbox
+	      5. Grid
+	 
+- Normal Flow - default flow of html. Inline, block and inline-block. When no css is applied
+- Box model fix - use box-sizing : border-box
+- Float - used for text wrapping. 
+- Clear - used to return elements to the normal flow after an element is floated
+- Position - This property can be used to arrange elements relative to its current position, its containing element, or the browser window.
+ 		1. relative  
+		2. absolute 
+		3. fixed 
+		4. sticky 
+		5. static (default) 
+- Flexbox items - flex : flex-grow(to fill the remaining space) flex-shrink(if 0 then don't get less than flex-basis) flex-basis(initial width to be used)
+- Order in flexbox - order : 1		//we can set the order of elements with flex
+- Grid layouts - gap cannot be used with fr(fraction unit)
+- minmax(100px, auto) can be used with grid
+- default there are 12 columns in grid
+
+----------------------------------------------
+Transforms and Transitions : 
+- Transition is the change of state.
+- Events trigger a transition
+- transition : property duration timing delay
+- transition : background-color 3s ease-out , left 2s cubic-bezier(1,0,2), width 2s ease
+- a {transition : all 1.2s}
+  a : hover { <Changes to be made> }
+- transition : property duration timing-function delay
+
+-----------------------------------------------------------------------------------------------------------------------------------
+SCSS (Sassy CSS) / SASS (Syntactically Awesome Style Sheet)
+
+- SCSS is the new version of SASS, and older version is k/as SASS only. Difference is in syntax and in file extention.
+- Syntax of SASS is similar to ruby and syntax of SCSS is similar to CSS	
+- SCSS contains all the features of CSS and contains more features that are not present in CSS which makes it a good choice for developers to use it. SCSS is full of advanced features.
+- SCSS offers variables, you can shorten your code by using variables. It is a great advantage over conventional CSS.
+
+- For new Angular app use scss option in styles.
+- SCSS is compiled into the CSS and that CSS will be used by the application.
+- Defining a variable  : $variableName : value
+- using a variable : color : $variableName
+- We can do nesting with it : 
+header button {} can be written as header {
+					color : red
+					width : 100px
+					height : 100px
+					button {
+						background-color : blue
+					}
+				}
+
+- Psuedo classes will be used like this : header {
+					color : red
+					width : 100px
+					height : 100px
+					button {
+						background-color : blue
+					&:hover {
+						color : black
+					}
+					}
+				}
+- We can split our files (file name should contain underscore before the name), if the file is too big, but then we have to import our file in the style.scss:
+
+@import './destination'
+
+- We can define function in css like we do in JS with the help of @mixin : 
+
+@mixin function_name() {											//This will help us to increase modularity
+	display : flex
+	justify-content : centre
+	align-items : centre
+}
+
+.contact {
+	@include function_name()
+}
+
+- We can also pass arguments in the function defined : 
+
+@mixin functionName($direction) {				//Any number of arguments can be passed
+	display : flex
+	flex-direction : $direction
+}
+
+.contact {
+	@include functionName(column)
+}
+
+- Inheritance is also possible in this, like we need to inherit header styles in .contact : 
+
+.contact {
+	@extend header;
+	background-color : lightblue;		//this will overwrite the styles of header if we want to 
+}
+
+- Calculation can be done easily in this : 
+
+width : 100% - 20%
+
+
+

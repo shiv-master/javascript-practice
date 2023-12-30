@@ -1,0 +1,725 @@
+- We cannot change a const object variable but we can change its properties
+- Object properties within a constant can be changed.
+- We can add functions inside object
+	{toggleLid : function () {}}
+- There is also console.table to display objects in js. We can also check how much time the console took to print the code by using console.time() console.timeEnd()
+- Type conversion : let myVar = 34			//type is number
+		    myVar = String(34)			//type is string or we can use toString()
+		    myVar = Number("asdf")		//type is NaN
+- Array.isArray(<array>), Array.from(<array>)
+- Use document.all() to access all the elements/methods of document API
+- Math.abs()		//absolute value
+- Access all the elements of body tag in html : document.body.innerHTML
+- We can use JS and html together with the help of template literals. Can be used for interpolation
+- Use document.querySelector("main") to access a particular element
+- Use document.querySelector("main li:nth-child(3)") will select the third element in the list
+- This is like using css in JS, because it uses css queries
+- document.querySelectorAll("main li")	//We will get all the list
+- document.querySelectorAll("main li").forEach(item => item.style.backgroundColor = "red")
+- document.getElementById("") and document.getElementsByClassName("")
+- To get the class property of an element use : document.querySelector("main li:first-child").classList			//.add() and .remove() can also be used with classList
+- To get the attribute of an element use : document.querySelector("img").attributes		//This will return the array and there are different methods for it
+- To access Inline styles : document.querySelector(".site-title").style 	//This will also return the array and there are some methods for it
+
+- To create Element : const newArticle = document.createElement("article")
+		      newArticle.classList.add("backpack")	//to add class in the element
+		      newArticle.setAttribute("id", "everyday")	//to add attribute
+- To append the element in the body element : document.body.appendChild(newArticle)
+- newArticle.innerHTML = "Hi, I am new article"		//to add the content in created element
+- element.className returns a string containing all classes appended to the element. element.classList returns a DOMTokenList with each class appended to the element.
+- typeof operator is used to check the data type
+- Only addition operator will concatenate the string and number.
+- join() will be used to convert array into string
+- Capital letters will be before small letters using .sort()
+- Calling a function inside another function is k/as callback.and passing a function as an argument to another function then this function which is passed as an argument is known as callback function
+ 
+- array.forEach() executes a provided callback function once for each item in the array. array.map() creates a new array with the results of executing a provided callback function once for each item in the original array.
+- target.addEventListner(event, () => {}, false) is used for events
+	const button = document.querySelector(".btn")
+	button.addEventListner("click", (e) => {console.log(`Event is Fired ${e}`)}, false)	//here true or false will be passed to mention whether to capture or event bubbling. False means event bubbling which is by default.
+- .stopPropogation() can be used to stop event bubbling or capturing aka trickling
+- In case when we can't execute the functions (callback) and also we want to pass the parameters in it then there we will use arrow function - () => {lidToggle(argument)} 
+- There are three stages of Promise : resolve, reject and pending
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+1. Let and const keywords
+2. Default parameters  ex= sum(val1 = 5, val2 = 10)
+3. Template literals (back ticks)
+4. find and findIndex array methods and indexOf is string method
+5. Arrow function (with this keyword)
+6. Classes (previously objects were used)
+7. Inheritance
+8. Lexical scope for this keyword (resolved by arrow function) (this keyword in normal function is treated as the object which calls the function whereas in arrow function this keyword is reffered to as the owner object of the arrow function) 
+9. Rest Operator 
+10. Promises
+11. Global function (isFinite(),isNan())
+12. Destructuring Array
+13. Exponentiation (**) (3 ** 4 = 81)
+
+
+- Map : It stores the value as key value pairs
+let course = new Map()
+course.set("react", {description : 'ui'})
+console.log(course.get("react"))
+
+- In case of Map, forEach of Map returns value of each Map object in value, key pair i.e opposite than usual.study forEach of map
+- A Map is ordered and iterable, whereas a objects is not ordered and not iterable. We can put any type of data as a Map key, whereas objects can only have a number, string, or symbol as a key. 
+
+- Set : values are unique and is like map
+let books = new Set();
+books.add("War and Peace")
+
+console.log(books)
+
+- Spread Operator : To join and to destructure the array and objects
+let cats = ["Biscuit", "Jungle]
+let dog = ["Stella", "Camper"]
+
+let animals = ["Smoky", ...cats, ...dog]
+
+- Destructuring the array : 
+let [first, anyname] = ["Spokane", "Boston", "los Angeles"]
+console.log(first)		//0
+console.log(anyname)		//1
+
+let [first, , ,anyname] = ["Spokane", "Boston", "los Angeles"]
+console.log(first)		//0
+console.log(anyname)		//3
+
+- Spread operator : 
+const daytime = {
+	breakfast : "oatmeal"
+	lunch : "Peanut butter and jelly"
+}
+
+const nighttime = "mac and cheese"
+const backpackmeals = {
+	...daytime,
+	nightitime	
+}
+
+- Destructuring the objects : 
+const sandwich = {
+	title : "Reuben",
+	price : 7
+	description : "A classic"}
+
+const {title, price} = {
+	title : "Reuben",
+	price : 7
+	description : "A classic"}
+
+console.log(title)
+console.log(price) 
+
+function marketing({title, price}) {
+	return `purchase ${title} for ${price}`
+}
+
+console.log(marketing(sandwich))
+
+- For/of loop : 
+for(let topic of topics) {
+	console.log(topic)
+}
+
+- .repeat : 
+let yell = "Woo"
+
+let party = yell.repeat(20)		//WooWooWooWooWooWooWooWooWooWooWooWooWooWoo
+
+let cat = { meow(times) {console.log("meow".repeat(times))}
+cat.meow(3)	//meowmeowmeow
+
+- Defualt parameters : 
+function add(x=5,y=6) {console.log(x + y)}
+
+- Arrow function : Scope of .this keyword
+- Generators : We can stop the execution of code and start from where it is stoped
+function* director(){
+yield "Three"
+yield "Two"
+yield "One"
+yield "Action"
+}
+
+let countdown = director()
+console.log(countdown.next())	//{value : "Three", done: false}
+console.log(countdown.next())	////{value : "Two", done: false}
+console.log(countdown.next())
+
+- Promises : To write asynchronous data
+const delay = new Promise((resolve, reject) => {})
+delay.then((data) => {console.log(data)}).catch(err)	//delay.then(console.log)
+
+- Nested Promises : 
+let spaceNames = () => getSpacePeople().then((resp) => resp.people).then((people) => people.map((p) => p.names)).then((names) => names.join(","))
+spaceNames().then(console.log)
+
+- .all method of Promise : Promise.all(array);
+
+- async and await : async function returns a promise and async await is used for nested promises as await is also a promise
+
+let a = async () => {
+	const response = await fetch('...')	//This will also work asynchronously
+	return response
+	}
+a.then(console.log)
+
+- Anonymous Function is a function that does not have any name associated with it. Normally we use the function keyword before the function name to define a function in JavaScript, however, in anonymous functions in JavaScript, we use only the function keyword without the function name.
+const name = function(a,b){}
+console.log(name(5,6))
+
+- Immediately Invoked Function Expression : 
+(function () {})();
+
+- First-Class Function: A programming language is said to have First-class functions if functions in that language are treated like other variables. So the functions can be assigned to any other variable or passed as an argument or can be returned by another function.
+
+- Higher-Order Function: A function that receives another function as an argument or that returns a new function or both is called Higher-order functions. Higher-order functions are only possible because of the First-class function.
+
+- Function borrowing : a way for an object to use the methods of another object without redefining that same method
+
+- Closures : A JavaScript Closure is when an inner function has access to members of the outer function (lexical scope) even when executing outside the scope of the outer function. It is the function which is bind together inside its lexical environment. We can also return the inner function.
+ 	     Function along with its lexical scope forms a closure.
+
+- Currying : It is a technique in functional programming, transformation of the function of multiple arguments into several functions of a single argument in sequence.  
+
+- call() Method: It calls the method, taking the owner object as argument.
+- The apply() method is used to write methods, which can be used on different objects. It is different from the function call() because it takes arguments as an array.
+- The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called. bind() returns a copy of function which can be called afterwards.
+
+- Alone, 'this' refers to the global object				//console.log(this)
+- With regular functions also 'this' refers to the global object	
+	function sum() {
+		console.log(this)			//global object
+	}
+
+- In a method, this refers to the owner object
+	 const func = {
+		name : 'Rishav'
+		fun : function() {
+			console.log(this.name)			//owner object
+		}
+}
+
+- When it is used in method and in strict mode it will return undefined
+- The arrow function doesn't define its own execution context.
+- No matter how or where being executed, this value inside of an arrow function always equals this value from the outer function. In other words, the arrow function resolves this lexically.
+
+this.last = 'dangi'
+const result = {
+    name : 'Rishav',
+    fnc : function() {
+        console.log(this.last)				//this will refer to the global object lexically
+    }
+}
+
+- Lexical scope : The Reference of parent environment in the hierarchy and the local memory.
+- Scope chain : The function have access to variables in its lexical environment. If js does not finds the variable in local environment(function) it searches in its lexcial environment and so on.
+- Hoisting of let and const : Hoisting is the allocation of memory into the global execution context. But in case of let and const the memory is allocated not in the GEC but somewhere else (can be block) which cannot be accessed. 
+- Temporal Dead Zone : This is the time zone between the hoisting of let and const keyword and until they are initialized. And accessing the let/const in this zone will throw reference error.
+- this === window	//true, as window is the global object
+- We have to initialize const while declaration. Unlike let, but then we can't access the let in temporal dead zone
+- Combination of multiple statements inside {} is block
+- Shadowing is modifying the variable outside the declaration scope.
+- Function statement or Function declaration : function a() {}
+- Function expression : const b = function() {}
+- Javascript is synchronous and single threaded, we use promises and callbacks to make it asynchronous
+- If a function like setTimeout() blocks the call stack(as js has only one call stack), it is known as blocking the main thread.
+- Callback function : A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+- Closures are used for data hiding.
+- There is need to remove event listners as it holds the memory. This is known as Garbage collection
+- SetTimeout() is not part of js, it is an API. Which will be accessed by Window object. It takes the callback function that will run after a period of time because it is also stored somewhere like web APIs section.
+- The callback in the setTimeout() is pushed into the callback queue after the time expires. Event loop will then push all the callbacks present in the callback queue to the callstack. And then it is executed.
+- When we use document.something then the browser calls the DOM web API.
+- Everything needs to be pushed into the call stack to get executed. And event loops if detects any change into the callback queue push it into the call stack
+- Incase of Promises and mutation observer, another queue will be prepared name microtask queue and the priority of microtask is more than callback queue. Means event loop will push microtask first.
+- Event loop will push the promises or callbacks only when the call stack gets empty after the previous execution of code.
+- Starvation happens when “greedy” threads make shared resources unavailable for long periods.
+- JavaScript Runtime Environment : The runtime environment is what makes JavaScript code work, and in a browser it consists of the JS engine, a lot of Web APIs, a callback queue and the event loop. The JS engine translates source code into machine code that allows a computer to perform specific tasks at the hardware level.
+- NodeJs is the javascript runtime environment.
+- Every browser has its own JS engine. Google Chrome and Node.js uses V8 js engine.
+- Call stack is found inside the JS engine.
+- JS engine passes our code from three phases : parsing, compiling, execution
+- It also consists of Garbage collector, which is used to sweep memory heaps
+- Callback function is also a first class function going by this definition because it is also passed as an argument. But Callback functions are used to specifically handle asynchronous tasks in a synchronous single threaded language like JavaScript.
+- Uses of Closure functions : 
+1. Module design pattern
+2. Currying
+3. setTimeouts
+4. Iterators
+5. Data hiding : 
+function counter() {
+    var count = 0
+    function increment() {
+        count++
+    }
+}
+console.log(count)			//We cannot access this count now because it is encapsulated using closure
+
+- Disadvantages of Closures : It can lead to overconsumption of memory because variables are not garbage collected.
+
+- Prototypes : __proto__ is an object which is implicitly attached to any array, object, function by JS engine itself through which we can access different methods of that object. 
+
+Prototypes are the mechanism by which JavaScript objects inherit features from one another.
+
+- Prototype chaining : arr = [1,2,3]
+1. arr.__proto__ == Array.prototype
+2. arr.__proto__.__proto__ == Object.prototype
+3. arr.__proto__.__proto__.__proto__ == null			//means Object.prototype.__proto__ is null
+
+- Types of Inheritance in JavaScript : 
+1. Prototypical Inheritance :  Prototypical inheritance is a type of inheritance that adds new properties and methods to an existing object. This inheritance makes use of prototype objects i.e. object.prototype.
+
+Function.prototype.mybind = () => {} or by using Object.create()
+
+2. Pseudoclassical Inheritance. In psuedoclassical inheritance, we try to create a class with a function that is intended to be called with the new keyword.
+
+function Car(make, color, speed) {
+  this.make = make;
+  this.color = color;
+  this.speed = speed;
+}
+
+var Toyota = new Car ("Toyota", "Red", "100mph"); by using constructor and prototype chaining
+
+3. Functional Inheritance : Functional inheritance involves inheriting features with the use of an augmenting function to an object instance:
+
+- Call : const name = {
+    firstName : "Rishav",
+    lastName : "Dangi", 
+    getName : function (hometown) {
+        console.log(this.firstName + " " + this.lastName + " "  + hometown)
+    }
+}
+
+const name2 = {
+    firstName : "Sachin",
+    lastName : "Tendulkar"
+}
+
+name.getName.call(name2, "Vidisha")	//If the function takes the arguments then add by seperating them by comma			
+
+- Apply : Difference will be we pass the arguments as an array.
+const name = {
+    firstName : "Rishav",
+    lastName : "Dangi", 
+}
+
+const getName = function (hometown, state) {
+        console.log(this.firstName + " " + this.lastName, " " + hometown + " " + state)
+    }
+
+getName.apply(name,["vidisha", "MP"] ) 
+
+- Bind : const name = {
+    firstName : "Rishav",
+    lastName : "Dangi", 
+}
+
+const getName = function (hometown, state) {
+        console.log(this.firstName + " " + this.lastName, " " + hometown + " " + state)
+    }
+
+const invokeLater = getName.bind(name, "Vidisha", "MP")
+
+invokeLater()
+
+- If we want every function can access our custom function we can assign it to prototype like this : 
+Function.prototype.mybind = function () {}
+
+- Custom bind method : 
+const name = {
+    firstName : "Rishav",
+    lastName : "Dangi", 
+}
+
+const getName = function (hometown, state, another_arg) {
+        console.log(this.firstName + " " + this.lastName, " " + hometown + " " + state)
+    }
+
+Function.prototype.mybind = function (...args) {
+    let obj = this
+	params = args.slice(1)
+    return function (...args2) {
+        //obj.call(args[0])
+        obj.apply(args[0], [...params, ...args2] )
+    }
+}
+
+const invokeLater = getName.mybind(name, "Vidisha", "MP")
+invokeLater("Another arg")
+
+- Polyfills : A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it.
+
+- Currying : 
+const multiply = function (x) {
+    return function (y) {
+        console.log(x*y)
+    }
+}
+multiply(2)(3)
+ 
+- Promise.all([]) will wait for all the promises to run then only will execute .then, but Promise.race([]) will not wait for all the promises to run, it will return the first one that gets resolved
+- First-order function is a function that doesn’t accept another function as an argument and doesn’t return a function as its return value.
+- Unary function (i.e. monadic) is a function that accepts exactly one argument. It stands for a single argument accepted by a function.	
+- Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results.
+- A Service worker is basically a script (JavaScript file) that runs in the background, separate from a web page and provides features that don't need a web page or user interaction.
+- Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
+- Event capturing is a type of event propagation where the event is first captured by the outermost element, and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the innermost DOM element.
+- Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
+- The Browser Object Model (BOM) allows JavaScript to "talk to" the browser.
+- You can use hasOwnProperty to particularly test for properties of the object instance (and not inherited properties)
+- You can use function.length syntax to find the number of parameters expected by a function.
+- The Object.is() method determines whether two values are the same value.
+- If an object is frozen using the Object.freeze() method then its properties become immutable and no changes can be made in them whereas if an object is sealed using the Object.seal() method then the changes can be made in the existing properties of the object.
+- You can use the Object.keys() method which is used to return an array of a given object's own property names
+- The encodeURI() function is used to encode complete URI
+- The empty statement is a semicolon (;) indicating that no statement will be executed, even if JavaScript syntax requires one. Since there is no action with an empty statement you might think that it's usage is quite less, but the empty statement is occasionally useful when you want to create a loop that has an empty body. For example, you can initialize an array with zero values.for (let i = 0; i < arr.length; arr[i++] = 0);
+- HTML5 introduced the history.pushState() and history.replaceState() methods, which allow you to add and modify history entries, respectively.
+- console.log(+ 'Hello');	//NaN
+- If you add two arrays together, it will convert them both to strings and concatenate them.
+- You can convert an array to an object with the same data using spread(...) operator.
+- Arrow functions do not have an arguments, super, this, or new.target bindings.
+- Arrow functions aren't suitable for call, apply and bind methods, which generally rely on establishing a scope.
+- Arrow functions cannot be used as constructors.
+- Arrow functions cannot use yield, within its body.
+- Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}
+
+- Directive : dropdown, highlight, unless
+- pipe : shorten 
+
+- Throttling tells us the maximum number of times a function can be called over a period of time. ... # Debouncing means that a function will not be called again until a certain amount of time has passed without it being called.
+- Uses of debouncing and throttling is checking the status of scrollbar and search bar
+- Event delegation refers to the process of using event propagation (bubbling) to handle events at a higher level in the DOM than the element on which the event originated. It allows us to attach a single event listener for elements that exist now or in the future. Inside the Event Handling Function.
+- It saves more memory, we have to write less code and to add event handler into dynamic elements.
+
+document.querySelector('#category').addEventListener('click', (e) => {
+	console.log(e.target.id)
+})
+
+- Local storage can be accessed only from the same host,port and protocol (http/https)
+- Storage location of local storage(10MB) and session storage(5MB) is browser only but for cookies(4kb) it can be browser or server and it can be sent with request for authentication purpose and expiry is set manually.
+- Cookies : Expiration is set manually, can be accessed from any window, size is small in kb, no method is allowed : 
+	document.cookies = "name=Rishav;expires=" + new date(2024,0,1).toUTCString()		//default date is expired
+
+- The rest parameter must be the last parameter in the function definition.	//foo(arg1, arg2, ...correct)
+
+- Deep and shallow copy : when reference is not shared by both the variables then deep copy (Primitive types : number, boolean, string)
+			  When reference is shared by both the variables thus changes in one variable can affect the copied one or vise versa. (Non-primitive type : Array, object)
+
+Object.assign( {}, original)				//shallow copy of object
+
+- If we want deep copy for non-primitive types then use the following operators : 1. copied =  JSON.parse(JSON.stringify(original))		But this will not be used when object contains function
+									      
+									      2. Spread Operator (...) : works same as Object.assign. Used for object destructuring, array initialization/copying, expandation of elements
+
+									      3. Use .slice() to make array deep copy
+									      
+
+- Webpack is a static module bundler for JavaScript applications — it takes all the code from your application and makes it usable in a web browser. Modules are reusable chunks of code built from your app's JavaScript, node_modules, images, and the CSS styles which are packaged to be easily used in your website.
+
+- Constructor Design Pattern. This is a special method that is used to initialize the newly created objects once a memory is allocated. Inheritance is one thing this design pattern does not support.
+
+- Prototype Pattern : The prototype pattern is based on prototypical inheritance whereby objects created to act as prototypes for other objects.
+
+- Module Design Pattern : The different types of modifiers (both private and public) are set in the module pattern. The daunting part of this is the inability to override the created functions from the outside environment.
+
+- Singleton Pattern : It is essential in a scenario where only one instance needs to be created, for example, a database connection. Its daunting experience in testing
+
+- Observer Pattern : The observer design pattern is handy in a place where objects communicate with other sets of objects simultaneously.
+
+
+
+Classes in ES6 : 
+- Class is just a blueprint for an object.
+
+class Employee {
+constructor(name,exp,division) {
+	this.name= name
+	this.exp = exp
+	this.division = division
+}
+
+static addNum(a, b) {				//static method can be called without creating an object i.e with the class directly, Employee.addNum(1, 2)
+	return a + b
+}
+
+}
+
+rishav = new Employee("Rishav", 2.9, "Developer")
+
+- Inheritance : Creating a new template extending the parent template
+class Programmer extends Employee {
+	constructor(name,exp,division, language){
+	super(name,exp,division)
+	this.language = language			//This is extended
+}
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+Snippets
+- var a = b = 3; is actually shorthand for: a = 3, b = 3
+
+b = 3;			//scope of b will be global now, defined
+var a = b;		
+
+- console.log(1 +  +"2" + "2");		//32
+console.log(1 +  -"1" + "2");		//02
+console.log( "A" - "B" + 2);		//NaN
+
+- 
+var a={},
+    b={key:'b'},
+    c={key:'c'};
+
+a[b]=123;
+a[c]=456;
+
+console.log(a[b]);			//456
+
+- console.log("1 || 2 = "+(3 || 2));			//1 || 2 = 3
+console.log("0 && 1 = "+(0 && 1));			//0 && 1 = 0
+
+- for(let i=0;i<=6;i++) {
+    setTimeout(() => {
+        console.log(i)				//0 1 2 3 4 5 6
+    },1000)
+}
+
+
+for(var i=0;i<=6;i++) {
+    setTimeout(() => {
+        console.log(i)				//7 7 7 7 7 7 7
+    },1000)
+}
+
+- var hero = {
+    _name: 'John Doe',
+    getSecretIdentity: function (){
+        return this._name;
+    }
+};
+
+var stoleSecretIdentity = hero.getSecretIdentity;
+
+console.log(stoleSecretIdentity());			//This will print "undefined", because it is called as the owner object as window object.
+
+To fix this use : var stoleSecretIdentity = hero.getSecretIdentity.bind(hero);
+
+- var length = 10;
+function fn() {
+	console.log(this.length);		//first 10 because the scope level is window object, this means the owner object
+}
+
+var obj = {
+  length: 5,
+  method: function(fn) {
+    fn();
+    arguments[0]();				//then 2 because then the owner object is argument array, and its length is 2
+  }
+};
+
+obj.method(fn, 1);				//10 2 
+
+- var x = 21;
+var girl = function () {
+    console.log(x);
+    var x = 20;
+};
+girl ();				//undefined
+
+- console.log(1 < 2 < 3);		//true
+console.log(3 > 2 > 1);			//false
+
+- console.log(typeof undefined == typeof null)			//false
+  console.log(typeof undefined == typeof NULL)			//true, as javascript is case sensitive
+
+- console.log(typeof NaN === "number");  			// logs "true", believe it or not :P
+  console.log(NaN === NaN);  					// logs "false"
+  console.log(NaN == NaN);					// logs "false"
+
+- const arr = [1,2,3,4,5]
+//push
+console.log(arr.push(6))        //length of array
+console.log(arr)                //changes done in original array
+
+//pop
+console.log(arr.pop())          //removed element
+console.log(arr)                //changes done in original array
+
+//shift
+console.log(arr.shift())        //removed element
+console.log(arr)                //changes done in original array
+
+//unshift
+console.log(arr.unshift(1))     //length of array
+console.log(arr)                //changes done in original array
+
+
+//splice
+console.log(arr.splice(1,2))        //removed elements
+console.log(arr)                    //changes done in original array
+
+
+//splice - addition
+console.log(arr.splice(1,0,7))        //nothing
+console.log(arr)                    //changes done in original array
+
+//slice
+console.log(arr.slice(0,3))        //selected items, excluding last number
+console.log(arr)                    //changes done in new array
+
+- const clothes = ['jacket', 't-shirt'];
+clothes.length = 0;
+clothes[0]; 				//undefined
+
+- const length = 4;
+const numbers = [];
+var i;
+for (i = 0; i < length; i++);{			//as there is semicolon, so it does nothing
+  // does nothing
+}
+{ 
+  // a simple block
+  numbers.push(i + 1);
+}
+numbers; // => [5]
+
+- let i;
+for (i = 0; i < 3; i++) {
+  const log = () => {	
+    console.log(i);					//3 3 3
+  }
+  setTimeout(log, 100);
+}
+
+-for (let i = 0; i < 3; i++) {
+  const log = () => {	
+    console.log(i);					//0 1 2
+  }
+  setTimeout(log, 100);
+}
+
+- const b = {
+    name:"Vivek",
+    f: function(){
+      var self = this;
+      console.log(this.name);
+
+      (function(){
+
+        console.log(this.name);
+
+        console.log(self.name);
+
+      })();
+
+    }
+
+  }
+
+  b.f();				//Vivek
+					  undefined
+					  Vivek
+
+- More generally, the operator returns the value of the first falsy operand encountered when evaluating from left to right, or the value of the last operand if they are all truthy.
+
+a1 = true  && true       // t && t returns true
+a2 = true  && false      // t && f returns false
+a3 = false && true       // f && t returns false
+a4 = false && (3 == 4)   // f && f returns false
+a5 = 'Cat' && 'Dog'      // t && t returns "Dog"
+a6 = false && 'Cat'      // f && t returns false
+a7 = 'Cat' && false      // t && f returns false
+a8 = ''    && false      // f && f returns ""
+a9 = false && ''         // f && f returns false
+
+console.log(5&&7)		//7
+
+- Opposite or &&
+o1 = true  || true       // t || t returns true
+o2 = false || true       // f || t returns true
+o3 = true  || false      // t || f returns true
+o4 = false || (3 == 4)   // f || f returns false
+o5 = 'Cat' || 'Dog'      // t || t returns "Cat"
+o6 = false || 'Cat'      // f || t returns "Cat"
+o7 = 'Cat' || false      // t || f returns "Cat"
+o8 = ''    || false      // f || f returns false
+o9 = false || ''         // f || f returns ""
+o10 = false || varObject // f || object returns varObject
+
+console.log(5||7)		//5
+
+
+--------------------------------------------------------------------------------------------
+Regular Expressions : 
+
+- They are used to search or replace through a string text.
+- Syntax : /pattern/modifier
+
+new RegExp("[abc]", "g")
+
+or simply:
+
+/abc/g
+
+- Different flags are used in it :
+
+Example : The fat cat ran down the street. 
+1. global (g) : /cat/g				//will search "cat" in the full string
+2. case insensitive (i): /The/gi			//will search globally and will search "The" and "the" also, as it is case insensitive. Default is case sensitive
+3. multiline (m) : /^I/gm			//If our string consist two or more lines, this will not treat them as a single line
+
+Types : 
+1. /ea?/g		//Will search for 'e' and 'a' is optional
+2. /e+/g		//Will search atleast one 'e' and also more than one 'e'
+3. /ea*/g		//It is the combination of + and ?
+4. /.at/g		//This will search the full word which consists of 'at'
+5. /\./g		//This will be used when we want to search '.'
+6. /\w/g		//Will give every letter of every word
+7. /\s/g		//will return the spaces
+8. /\w{4}/g		//Will return every word whose length is 4
+9. /\w{4,5}/g		//will return every word whose length is between 4 and 5
+10. /[a-cA-D]at/g	//will return every word whose first letter is between a and c or A and B, and ends with 'at'
+11. /(t|T)he/g		//will return 'the' and 'The' both. This is known as grouping of words.
+12. /^I/gm		//This will return 'I' if the line starts with 'I'
+13. /\.$/g		//This will check for ending
+14. /(?<=[tT]he)./g	//This will return every thing that is after 'the'/'The'
+15. /.(?=at)/g		//This will return every thing(in the same word) that is before 'at'
+16. /\d{10}/g		//'d' stands for digits and {10} will take 10 digits in a row
+17. /(?<areacode> d{3})(?<areacode1> d{4})		//We can also assign names for our groups
+
+- Methods : 
+In JavaScript, regular expressions are often used with the different string methods:
+
+The search() method uses an expression to search for a match, and returns the position of the match : 
+
+let text = "Visit W3Schools";
+let n = text.search(/w3schools/i);
+
+The replace() method returns a modified string where the pattern is replaced : 
+
+let text = "Visit Microsoft!";
+let result = text.replace(/microsoft/i, "W3Schools");
+
+The test() method is a RegExp expression method. It searches a string for a pattern, and returns true or false, depending on the result.
+
+const pattern = /e/;
+pattern.test("The best things in life are free!");			//true
+
+The exec() method is a RegExp expression method. It searches a string for a specified pattern, and returns the found text as an object. If no match is found, it returns an empty (null) object. We have to call it again and again (till we get null) to search full array.
+
+let reg = /e/gi
+  let str = "The best things in life are free!"
+  let result1 = reg.exec(str)
+  let result2 = reg.exec(str)
+  let result3 = reg.exec(str)
+  console.log(result1)
+  console.log(result2)
+  console.log(result3)
+
+
+The match() method matches a string against a regular expression. The match() method returns an array with the matches. The match() method returns null if no match is found. The match() method returns an array of matches. The search() method returns the position of the first match
+
+string.match(match)

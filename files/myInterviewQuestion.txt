@@ -1,0 +1,66 @@
+const a = [10, 5, 4, 9, 7, 8, 12]
+a.map((i) => {
+    a.push(i)
+})
+console.log(a.sort())
+
+*observe the behaviour of sort()=> sort always compare first digit and then second digit of the same number.i.e it sort as a string value(75 > 200)
+ex:- const a = [10, 14, 12, 7, 4, 9, 24, 21, 29]
+a.sort();
+output:- 10, 12, 14, 21, 24, 29, 4, 7, 9
+
+*a.sort((a, b)=> a-b)
+output:- ascending array 4, 7, 9, 10, 12, 14, 21, 24, 29
+
+*a.sort((a, b)=> b-a)
+output:- decending array 29, 24, 21, 14, 12, 10, 9, 7, 4
+
+console.log(typeof("4" - true))   // 3 number type
+
+const arr = [1, 2, 2, 3, 3, 3]
+//find unique value
+const newSet = new Set(arr)
+const newFilterArray = [...newSet]
+
+const arr = [1, 2, 3]
+arr[100] = 90
+console.log(arr)                //[1, 2, 3, empty × 97, 90]
+console.log(arr.length)		//101
+
+console.log(0.1+0.2 == 0.3)     // false due to binary calculation
+
+const obj = {
+    name: "shivam",
+    age: 24,
+    gender: "male",
+    job: "coding"
+}
+
+const {name, ...obj2} = obj
+console.log(name, obj2)		//shivam      {age: 24, gender: 'male', job: 'coding'}
+
+const arr = [1, 2, 3, 4, 5]
+const [a, b, ...arr1] = arr
+console.log(`a is ${a}, b is ${b} and arr2 is ${arr1}`)          //a is 1, b is 2 and arr2 is 3,4,5
+
+
+const a = 10
+console.log('1', a)
+
+setTimeout(() => {
+ console.log('2')
+}, 10)
+
+setTimeout(() => {
+    console.log('3')
+})
+
+console.log("4")
+
+setTimeout(() => {
+    console.log('5')
+}, 0)
+
+console.log("6")
+
+//1 4 6 3 5 2

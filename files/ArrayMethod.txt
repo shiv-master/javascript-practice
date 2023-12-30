@@ -1,0 +1,49 @@
+Array method in js : 
+
+itemsArray = [{name : 'Anshul', gender : 'male'}, {name : 'Shubham', gender : 'male'}, {name : 'Priya', gender : 'female'}]
+
+const filteredArray = itemsArray.filter((item) => {
+    return item.gender === "female"
+})
+
+const newArray = filteredArray.map((item) => {
+    return item.name
+})
+
+console.log(newArray)
+
+const findFemale = itemsArray.find(item => {
+    return item.name === 'Shubham'
+})
+
+console.log(findFemale)
+
+itemsArray.forEach(item => {
+    console.log(item.name)
+})
+
+const anyFemale = itemsArray.some(item => {
+    return item.gender === 'female'
+})
+
+console.log(anyFemale)
+
+const newItems = [
+    {
+        name : 'Bike', price : 1000
+    },
+    {
+        name : 'Car', price : 2000
+    },
+    {
+        name : 'Truck', price : 3000
+    }
+    ]
+    
+const total = newItems.reduce((currentTotal, item) => {
+    return item.price + currentTotal
+}, 0)
+
+console.log(total)
+
+

@@ -1,0 +1,90 @@
+- Semantic in html : It is a coding style(like header, nav, footer, article, aside, section etc). In semantic HTML <b></b> tag and <i></i> tag is used as <strong></strong> and <em></em> tags.
+- Use <iframe> for nested webpage
+- Image map : An image map is used for linking many web pages using a single image. It is represented by <map> tag and also <area> tag is used inside map tag to specify areas in an image.
+- Marquee : It is used for scrolling text on a web page. It scrolls the image or text up, down, left or right automatically. Use the tags <marquee>...</marquee>
+- To create element : <script> document.createElement("myElement")</script>
+			<myElement>...<myElement>
+- A URL is encoded to convert non-ASCII char into a format that can be used over the internet because a URL is sent over the internet by using the ASCII char-set only.
+- The HTML character entities are used as a replacement for reserved char in HTML
+- <font color="red"></font> can be used to color the text in html
+- To make a picture a background image on web page write the below code after </head> tag : 
+	use background-image property=> background-image: url('img_girl.jpg')	              or  <body background="image.gif">
+- Span can be used to highlight the text
+- Indent can be used to keep the list elements straight.    // text-indent: 5px;
+- LocalStorage and sessionStorage : It stores the data without any expiry date, whereas sessionStorage holds the data for only one session
+				    The data in sessionStorage is accessible only in the current window of the browser. But the localStorage can be shared between multiple windows of the browser
+- Inline style sheets have the priority over external style sheets
+- To send mail on clicked : <a href="mailto:youremailadress">button<a>
+- If the text is part of a table cell with a defined width, the text could extend beyond the browser window
+- The default size for a text field is around 13 char
+- Default cell border is 1px
+RM- SVG (Scalable Vector Graphics) : Html SVG is used to describe the 2D vector. SVG images and their behaviors are defined in XML text. like piecharts
+RM- Difference b/w HTML and XHTML : 1. HTML is an application of Standard Generalized Markup language, whereas XHTML is an application of Extensible Markup language
+				  2. first one is static web page whereas the latter one is dynamic web page
+				  3. HTML is about displaying information whereas XHTML is about describing the information.
+- Logical and Physical tags : Logical tags are used to tell the meaning of the enclosed text. Physical tags are used to tell the browser how to display the text enclosed in the physical tag.
+- HTML 5 is more mobile friendly, drag (draggable="true") and drop effect is also possible and it supports high-level video and audio support. It also supports js to run in background
+  but it has licensing issue
+- Geolocation API is used to locate a user's geographical location. Web messaging is also allowed.
+- Diff b/w SVG and Canvas : 		SVG				Canvas
+			    1. It is Object Model-based		It is pixel based
+			    2. Support for event handlers	Does not support event handlers
+			    3. Has better scalability		Has poor scalability
+			    4. Not suitable for game graphics	Suitable for game graphics
+			    5. Resolution independent		Resolution dependent
+- Application cache concept means that a web application can be cached. It can be accessed without internet.It can be created with the help of manifest attribute in the html tag.
+- Html tags are used for placing html elements in the proper and appropriate format
+- The three kinds of Doctypes which are available:
+
+Strict Doctype 
+Transitional Doctype
+Frameset Doctype
+
+- Using the “display” property with its value as “block”, to change the inline element into a block-level element.
+- The <datalist> tag and <select> tag are different. In the case of <select> tag a user will have to choose from a list of options, whereas <datalist> when used along with the <input> tag provides a suggestion that the user selects one of the options given or can enter some entirely different value.
+- The manifest file is used to list down resources that can be cached. Browsers use this information to make the web page load faster than the first time. There are 3 sections in the manifest file.
+- Web Components : These are used to create reusable custom elements which are very difficult in traditional HTML. It consists of three technologies:
+
+Custom elements - These are JavaScript APIs that help in defining custom elements and their behavior.
+Shadow DOM - These are JavaScript APIs that attach an encapsulated shadow DOM tree to an element to keep the element’s features private and unaffected by other parts.
+HTML templates
+
+- <p dir="ltr">		//this shows the flow of direction
+
+- &nbsp is used when you don't want to break the line
+- srcset and size can be used for responsive images and can show the responsive image of the same picture to the user depending on the screen size.
+- <picture> will also be used for responsiveness
+- <figure> and <figcaption> can be used to provide captions for the image
+- <meta> is used to show the description on google search
+- <link rel href> rel tells which kind of asset it is and href is used to provide the url to the asset
+- <script src=""> tells the browser to load the js file, it could also be written in head and the body.
+- main,header,footer,article,section,aside these are some semantic elements
+- No matter where they are written execution will be from top to bottom. Semantic is the meaning not the position.
+
+- With async , the file gets downloaded asynchronously and then executed as soon as it's downloaded. With defer , the file gets downloaded asynchronously, but executed only when the document parsing is completed. With defer , scripts will execute in the same order as they are called
+- Semantic HTML refers to syntax that makes the HTML more comprehensible by better defining the different sections and layout of web pages. It makes web pages more informative and adaptable, allowing browsers and search engines to better interpret content.
+- A semantic element clearly describes its meaning to both the browser and the developer.
+
+Examples of non-semantic elements: <div> and <span> - Tells nothing about its content.
+
+Examples of semantic elements: <form>, <table>, and <article> - Clearly defines its content.
+
+- aria-label is an attribute defined in the WAI-ARIA(opens in a new tab) specification. This specification extends native HTML, allowing you to change the way an HTML element is "translated" into the accessibility tree. By default, an HTML element will use its text content as the accessibility label. It's an attribute designed to help assistive technology (e.g. screen readers) attach a label to an otherwise anonymous HTML element.
+
+- Accessibility is the practice of making your websites usable by as many people as possible. We traditionally think of this as being about people with disabilities, but the practice of making sites accessible also benefits other groups such as those using mobile devices, or those with slow network connections. WAI(Web Accessibility Initiative) describes the strategy for preliminary and conformance reviews of web sites.	
+
+- Creating form in html : 
+<body>
+    <form>
+      <label>Name</label>
+      <input type="text" name="">
+      <label>Gender</label>
+      <input type="radio" value="Male" name="Gender">Male
+      <input type="radio" value="Female" name="Gender">Female
+      <select>
+        <option value="City1">City1</option>
+        <option value="City2">City2</option>
+        <option value="City3">City3</option>
+      </select>
+    </form>
+  </body>

@@ -1,0 +1,70 @@
+RxJs and Observables :
+- RxJs is a library that can be used in angular for asynchronous coding.
+
+
+RxJs operators : 
+- toArray() : Collects all source emission and emits them as an array when source completes.	//pipe(toArray()).subscribe()
+- Creating custom observables : const obs = Observable.create(observer => {
+	observer.next('When good'),
+	observer.error('When not good'),
+	observer.complete()
+})
+- map() : It is used to transform the data and return a new observable.			//pipe(map(x => 10*x)).subscribe()
+- pluck() : It can be used to get any particular property of an object.			//pipe(pluck('name')).subscribe()
+
+- If we want to access nested object with the help of pluck(), it will be written as pluck('job','title'), where 'job' is another object inside response object.
+
+- filter() : It is used to filter the response. 					//pipe(filter(member => member.name.length > 6)).subscribe()
+
+- tap() : Any action can be performed on the data or response (logging, condition for unsubscribe, adding dynamic style or value) without changing the data. It also returns a new observable like map.
+
+- take() can be used to take number of values, takeWhile() will be used for until condition (condition will be an observable), takeFirst() to take only the first value, takeLast() to take only last values of particular number. It will unsubscribe automatically after the given number.
+
+- retry() : It is used to resubscribe until the given count.
+- retryWhen() : It takes the condition to retry
+- debounceTime() is used for debouncing, which improves searching and throttleTime() for throttling.
+- distinctUntilChange() will be used if we don't want to send the API request every time without a change.
+
+Flattening operator : 
+- Flattening operators come to our rescue when we have a nested subscription i.e subscribing to an observable within another subscription.
+- mergeAll() : It merges all the response from all the observables.		//pipe(map(res => {}), mergeAll()).subscribe
+- mergeMap() : uses map() and mergeAll() as a one implictly. 				//pipe(mergeMap(res => {})).subscribe
+- concatAll() : same as mergeAll() but sequentially.				//pipe(map(res => {}), concatAll()).subscribe
+- concatMap() : uses map() and mergeAll() as a one implictly. 				//pipe(concatMap(res => {})).subscribe
+- concatMap : behaves like a queue: It stores all calls and sends one after another. If one is completed, the next one is being processed. mergeMap : Also sends all requests, like concatMap but does not wait until the response is coming back. It sends them out as they come.
+- switchAll() : It converts a higher-order Observable into a first-order Observable producing values only from the most recent observable sequence
+- switchMap() : It cancels all the previous requests and subscribe the last observable. Uses switchAll() and map() both implictly. Mostly used in search functionality	
+//pipe(switchMap(res => {})).subscribe()
+
+- exhaustMap() : ExhaustMap always waits for the inner observable to finish. It ignores any value it receives from the source during this period. Any value it receives after the inner observable is finished is accepted and it creates a new inner observable.	//pipe(exhaustMap(res => {}))
+- shareReplay() : When we don't want to send additional duplicate http requests
+ 
+ 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Observables : 
+- Observables provide support for data sharing between publishers and subscribers in an angular application. It is referred to as a better technique for event handling, asynchronous programming, and handling multiple values as compared to techniques like promises.
+- Observables can be async as well as sync, but promises are async
+
+- fromEvent() : To create observable stream with any event.
+- interval() : To emit a data in a mentioned interval						//interval(2000)
+- timer() : To start emitting the data in a interval of time					//timer(delay, interval)
+- of() : To convert anything to observable or stream of data use of().				//const obs = of(1,2,3)
+- from() : To convert Promise/Array/Object into observable (stream of data)use from().		//const obs = from([1,2,3])
+- Subject() : Subject is a special type of Observable in RxJs Library in which we can send our data to other components or services. A Subject is like an Observable but can multicast to many observers which means subject is at the same time an Observable and an Observer.
+- BehaviourSubject() : Behavior Subject is similar to subject but only difference is that we can set the initial value .
+- The ReplaySubject will store every value it emits in a buffer. It will emit them to the new subscribers in the order it received them. You can configure the buffer using the arguments bufferSize and windowTime
+
+bufferSize: No of items that ReplaySubject will keep in its buffer. It defaults to infinity.
+
+windowTime: The amount of time to keep the value in the buffer. Defaults to infinity.		//ReplaySubject(3,5000)
+
+- AsyncSubject only emits the latest value only when it completes. If it errors out then it will emit an error, but will not emit any values.
+- concat() : The concat operator creates an output Observable which sequentially emits all values from given Observable and then moves on to the next Observable.	//concat(obs1, obs2)
+- merge() : merge() do not wait the first observable to complete first, it emits the value whenever it gets it.
+- valueChanges : triggers whenever any value changes 
+- combineLatest() : combines the latest values of two different observables.
+- withLatestFrom() : This is an operator and works like combineLatest(), but the difference is that it changes only when there is change in master observable.
+//masterObs.pipe(withLatestFrom(slaveObs)).subscribe()
+- zip() : It generates value only when there is change in both the observables.		//zip(obs1,obs2).subscribe()
+- forkJoin() : forkJoin will wait for all passed observables to emit and complete and then it will emit last value from corresponding observables. It is like Promise.all()		//forkJoin(obs1,obs2).subscribe()
+- Use toPromise() to convert observable to promise.
